@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Project IAK Sunshine</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_exit">Exit</string>
+    <string name="no_data">No data</string>
+    <string name="error_during_init">Error during toolbar initialize</string>
+    <string name="city_country">City / Country</string>
+    <string name="latitude_longitude">Latitude / Longitude</string>
+    <string name="today">Today</string>
+    <string name="last_update">Last update: %s</string>
+    <string name="server_last_update">Server\'s weather last update</string>
+    <string name="wind_default">Wind: 0 m/s</string>
+    <string name="wind_value">%s m/s</string>
+    <string name="pressure_default">Pressure: 0 hPa</string>
+    <string name="humidity_default">Humidity: 0%</string>
+    <string name="temperature_default">0°C</string>
+    <string name="temperature_configured">%s°C</string>
+    <string name="retry">Retry</string>
+    <string name="empty"/>
+    <string name="wind">Wind: %s m/s</string>
+    <string name="pressure">Pressure: %s hPa</string>
+    <string name="humidity">Humidity: %s </string>
+    <string name="temperature">%s°C</string>
+    <string name="rain">Rain: %d</string>
+    <string name="find_city">Find a city</string>
+    <string name="min_max_temperatures" formatted="false">%s°C/%s°C</string>
+</resources>

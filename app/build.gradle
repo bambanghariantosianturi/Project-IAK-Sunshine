@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+apply plugin: 'com.neenbedankt.android-apt'
+
+def WORLD_WEATHER_ONLINE_API_KEY = '"' + WorldWeatherOnlineApiKey + '"' ?: '"Define World WeatherCondition Online Api Key"';
+def OPEN_WEATHER_MAP_API_KEY = '"' + OpenWeatherMapApiKey + '"' ?: '"Define Open WeatherCondition Map Api Key"';
+
+android {
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+        applicationId "com.bambang.projectiaksunshine"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+android.buildTypes.each {
+    it.buildConfigField 'String', 'WORLD_WEATHER_ONLINE_API_KEY', WORLD_WEATHER_ONLINE_API_KEY
+    it.buildConfigField 'String', 'OPEN_WEATHER_MAP_API_KEY', OPEN_WEATHER_MAP_API_KEY
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.android.support:cardview-v7:25.3.1'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.5.4'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.4'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.4'
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    compile 'com.squareup.retrofit2:converter-jackson:2.0.2'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
+    compile 'io.reactivex:rxjava:1.1.6'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+    compile 'io.paperdb:paperdb:1.5'
+    compile 'com.jakewharton:butterknife:8.1.0'
+    apt 'com.jakewharton:butterknife-compiler:8.1.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.android.support:support-annotations:25.3.1'
+    // Tests' dependencies
+    testCompile 'junit:junit:4.12'
+    androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.4.1'
+    testCompile 'junit:junit:4.12'
+
+}
